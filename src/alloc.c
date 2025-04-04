@@ -281,7 +281,7 @@ void *turealloc(void *ptr, size_t new_size) {
     header *hdr = (header*)((char*)ptr-sizeof(header));
     if (hdr->magic != MAGIC_NUMBER) {
         printf("your magic number is not so magic\n");
-        return NULL;
+        abort();
     }
     size_t old_size = hdr->size;
     if (new_size <= old_size) {
@@ -309,7 +309,7 @@ void tufree(void *ptr) {
     header *hdr = (header*)((char*)ptr-sizeof(header));
     if (hdr->magic != MAGIC_NUMBER) {
         printf("your magic number is not so magic\n");
-        return;
+        abort();
     }
 
     free_block *block = (free_block*)hdr;
