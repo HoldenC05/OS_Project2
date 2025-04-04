@@ -140,7 +140,6 @@ void *coalesce(free_block *block) {
  * @param size The size of the block to search for
  */
 void *next_fit_search (size_t size) {
-    
     if (HEAD == NULL) {
         return NULL;
     }
@@ -160,12 +159,9 @@ void *next_fit_search (size_t size) {
             void *split_block = split(curr, size);
             if (split_block != NULL) {
                 // If it can be split, remove the block from the free list
+                LAST_ALLOC = ((free_block*)split_block)->next;
                 remove_free_block(curr);
-                free_block *remainder = (free_block*)((char*)split_block + size + sizeof(free_block));    
-                remainder->next = HEAD;
-                HEAD = remainder;
                 
-                LAST_ALLOC = (free_block*)split_block;
                 return split_block;
             } else {
                 // If it can't be split, just remove it from the free list
@@ -175,8 +171,8 @@ void *next_fit_search (size_t size) {
             }
         }
         curr = curr->next;
-        if (curr == HEAD) {
-            curr = NULL; // We have looped through the entire list
+        if (curr == NULL) {
+            curr = HEAD; // Loop around when you hit null
         
         if (curr == LAST_ALLOC) {
             break; // We have looped through the entire list, Because we checked LAST_ALLOC at the begining, we don't have to do it again
@@ -193,26 +189,26 @@ return NULL;
  * @return A pointer to the allocated memory
  */
 
-void *do_alloc(size_t size) {
-    
+ void *do_alloc(size_t size) {
     void *start = sbrk(0);
     uintptr_t addr = (uintptr_t)start;
-    size_t misalignment = addr % ALIGNMENT;
+    size_t misalignment = addr & ALIGNMENT; //use bitwise mask becuase we don't know the base of things
     size_t alignment_correction = 0;
     if (misalignment != 0) {
         alignment_correction += ALIGNMENT - misalignment;
     }
 
-    if (sbrk(size + sizeof(header) + alignment_correction) == (void*)-1) {
+    void *ptr = sbrk(size + sizeof(header)) + alignment_correction;
+    if (ptr == (void*)-1) {
         return NULL;
     }
 
     // Set the header
-    header *hdr = (header *)(addr + alignment_correction);
+    header *hdr = (header *)(ptr + alignment_correction);
     hdr->size = size;
     hdr->magic = MAGIC_NUMBER;
 
-    return (void*)(addr + alignment_correction + (sizeof(header)));
+    return (void*)(ptr + alignment_correction + (sizeof(header)));
 }
 
 /**
@@ -222,7 +218,6 @@ void *do_alloc(size_t size) {
  * @return A pointer to the requested block of memory
  */
 void *tumalloc(size_t size) {
-    
     if (size == 0) {
         return NULL;
     }
@@ -242,8 +237,6 @@ void *tumalloc(size_t size) {
     else {
         return (do_alloc(size));
     }
-
-    return NULL;
 }
 
 /**
@@ -254,12 +247,16 @@ void *tumalloc(size_t size) {
  * @return A pointer to the requested block of initialized memory
  */
 void *tucalloc(size_t num, size_t size) {
-    
     if (num == 0 || size == 0) {
         return NULL;
     }
-    size_t true_size = num * size + sizeof(header);
-    return tumalloc(true_size);
+    size_t true_size = num * size;
+    //Init list for elements
+    void *list = tumalloc(true_size);
+    memset(list, 0, true_size);
+
+    return list;
+
 }
 
 /**
@@ -270,7 +267,6 @@ void *tucalloc(size_t num, size_t size) {
  * @return A new pointer containing the contents of ptr, but with the new_size
  */
 void *turealloc(void *ptr, size_t new_size) {
-    
     if (ptr == NULL) {
         return tumalloc(new_size);
     }
@@ -316,6 +312,5 @@ void tufree(void *ptr) {
     block->size = hdr->size;
     block->next = HEAD;
     HEAD = block;
-    block = coalesce(block);
-
+    coalesce(block);
 }
