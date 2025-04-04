@@ -7,7 +7,7 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/Users/holden/Desktop/University of Tulsa/Spring 2025/Operating Systems/Projects/Project 2/OSProj2/CMakeLists.txt"
+  "/Users/holden/Desktop/University of Tulsa/Spring 2025/Operating Systems/Projects/Project 2/OS_Project2/CMakeLists.txt"
   "CMakeFiles/4.0.0/CMakeCCompiler.cmake"
   "CMakeFiles/4.0.0/CMakeSystem.cmake"
   "/opt/homebrew/share/cmake/Modules/CMakeCInformation.cmake"

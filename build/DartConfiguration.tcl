@@ -4,8 +4,8 @@
 
 
 # Configuration directories and files
-SourceDirectory: /Users/holden/Desktop/University of Tulsa/Spring 2025/Operating Systems/Projects/Project 2/OSProj2
-BuildDirectory: /Users/holden/Desktop/University of Tulsa/Spring 2025/Operating Systems/Projects/Project 2/OSProj2/build
+SourceDirectory: /Users/holden/Desktop/University of Tulsa/Spring 2025/Operating Systems/Projects/Project 2/OS_Project2
+BuildDirectory: /Users/holden/Desktop/University of Tulsa/Spring 2025/Operating Systems/Projects/Project 2/OS_Project2/build
 
 # Where to place the cost data store
 CostDataFile: 
@@ -27,7 +27,7 @@ SubmitInactivityTimeout:
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/opt/homebrew/bin/cmake" "/Users/holden/Desktop/University of Tulsa/Spring 2025/Operating Systems/Projects/Project 2/OSProj2"
+ConfigureCommand: "/opt/homebrew/bin/cmake" "/Users/holden/Desktop/University of Tulsa/Spring 2025/Operating Systems/Projects/Project 2/OS_Project2"
 MakeCommand: /opt/homebrew/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 

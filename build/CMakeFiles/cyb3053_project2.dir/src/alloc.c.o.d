@@ -1,6 +1,6 @@
 CMakeFiles/cyb3053_project2.dir/src/alloc.c.o: \
-  /Users/holden/Desktop/University\ of\ Tulsa/Spring\ 2025/Operating\ Systems/Projects/Project\ 2/OSProj2/src/alloc.c \
-  /Users/holden/Desktop/University\ of\ Tulsa/Spring\ 2025/Operating\ Systems/Projects/Project\ 2/OSProj2/src/alloc.h \
+  /Users/holden/Desktop/University\ of\ Tulsa/Spring\ 2025/Operating\ Systems/Projects/Project\ 2/OS_Project2/src/alloc.c \
+  /Users/holden/Desktop/University\ of\ Tulsa/Spring\ 2025/Operating\ Systems/Projects/Project\ 2/OS_Project2/src/alloc.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stddef_header_macro.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stddef_ptrdiff_t.h \

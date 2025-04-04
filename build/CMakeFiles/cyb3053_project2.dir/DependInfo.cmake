@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/holden/Desktop/University of Tulsa/Spring 2025/Operating Systems/Projects/Project 2/OSProj2/src/alloc.c" "CMakeFiles/cyb3053_project2.dir/src/alloc.c.o" "gcc" "CMakeFiles/cyb3053_project2.dir/src/alloc.c.o.d"
-  "/Users/holden/Desktop/University of Tulsa/Spring 2025/Operating Systems/Projects/Project 2/OSProj2/src/main.c" "CMakeFiles/cyb3053_project2.dir/src/main.c.o" "gcc" "CMakeFiles/cyb3053_project2.dir/src/main.c.o.d"
+  "/Users/holden/Desktop/University of Tulsa/Spring 2025/Operating Systems/Projects/Project 2/OS_Project2/src/alloc.c" "CMakeFiles/cyb3053_project2.dir/src/alloc.c.o" "gcc" "CMakeFiles/cyb3053_project2.dir/src/alloc.c.o.d"
+  "/Users/holden/Desktop/University of Tulsa/Spring 2025/Operating Systems/Projects/Project 2/OS_Project2/src/main.c" "CMakeFiles/cyb3053_project2.dir/src/main.c.o" "gcc" "CMakeFiles/cyb3053_project2.dir/src/main.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
