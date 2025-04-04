@@ -140,7 +140,7 @@ void *coalesce(free_block *block) {
  * @param size The size of the block to search for
  */
 void *next_fit_search (size_t size) {
-    printf("Starting next_fit_search\n");
+    
     if (HEAD == NULL) {
         return NULL;
     }
@@ -194,7 +194,7 @@ return NULL;
  */
 
 void *do_alloc(size_t size) {
-    printf("Starting doalloc)");
+    
     void *start = sbrk(0);
     uintptr_t addr = (uintptr_t)start;
     size_t misalignment = addr % ALIGNMENT;
@@ -222,7 +222,7 @@ void *do_alloc(size_t size) {
  * @return A pointer to the requested block of memory
  */
 void *tumalloc(size_t size) {
-    printf("Starting tumalloc\n");
+    
     if (size == 0) {
         return NULL;
     }
@@ -254,7 +254,7 @@ void *tumalloc(size_t size) {
  * @return A pointer to the requested block of initialized memory
  */
 void *tucalloc(size_t num, size_t size) {
-    printf("Starting tucalloc\n");
+    
     if (num == 0 || size == 0) {
         return NULL;
     }
@@ -270,7 +270,7 @@ void *tucalloc(size_t num, size_t size) {
  * @return A new pointer containing the contents of ptr, but with the new_size
  */
 void *turealloc(void *ptr, size_t new_size) {
-    printf("Starting turealloc\n");
+    
     if (ptr == NULL) {
         return tumalloc(new_size);
     }
