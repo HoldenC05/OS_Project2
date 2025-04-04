@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdint.h>
 
 #define ALIGNMENT 16 /**< The alignment of the memory blocks */
 #define MAGIC_NUMBER 0x0512ABCD
