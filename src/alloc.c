@@ -212,7 +212,7 @@ void *do_alloc(size_t size) {
     hdr->size = size;
     hdr->magic = MAGIC_NUMBER;
 
-    return (void*)(addr + alignment_correction + sizeof(header));
+    return (void*)(addr + alignment_correction + (sizeof(header)));
 }
 
 /**
